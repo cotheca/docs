@@ -38,5 +38,7 @@ Particular **objectives for "Entity"** are:
 	 - Test extension methods with unit tests.
 	 - Provide easy to read and understand documentation for adopters.
  - **Data Sets**: "Sets of records for commonly-used data in software."
+ Provide sets of data records for commonly used data, like countries, states and cities.
+ Particular objectives for Data Sets project are TBD, as this might be built on top of the "Entity" project.
 
 The ultimate goal is to make the deliverables of these projects available in as many programming languages as possible. Once completed, deliverables will be distributed via the most commonly used package manager for each language to make it easy to integrate them into any project. Once published and available, coders could easily skip the most burden tasks for most projects.
