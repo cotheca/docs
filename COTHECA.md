@@ -19,4 +19,9 @@ Let's image a different scenario... What if instead of re-inventing the wheel or
 Well, that's Cotheca.
 
 # Goals
-As an open-source project, the whole objective is: "to write the most [reusable and] universal collection of code."
+As an open-source project, the whole objective is: "to write the most [reusable and] universal collection of code." The principal idea is to publish reusable "blocks" that any developer, engineer or aficionado can easily import into their projects for whatever purposes (personal, philanthropic, institutional or commercial). This is definitely a very conceptual and abstract objective by any realistic standard. So, let's break it down in more tangible goals, where each goal is its own project and we will see how far these get:
+ - **Entity**: "A collection of common object definitions."
+ - **Extensions**: "Extended functionality for data types."
+- **Data Sets**: "Sets of records for commonly-used data in software."
+
+The ultimate goal is to make the deliverables of these projects available in as many programming languages as possible. Once completed, deliverables will be distributed via the most commonly used package manager for each language to make it easy to integrate them into any project. Once published and available, coders could easily skip the most burden tasks for most projects.
