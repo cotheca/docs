@@ -21,6 +21,14 @@ Well, that's Cotheca.
 # Goals
 As an open-source project, the whole objective is: "to write the most [reusable and] universal collection of code." The principal idea is to publish reusable "blocks" that any developer, engineer or aficionado can easily import into their projects for whatever purposes (personal, philanthropic, institutional or commercial). This is definitely a very conceptual and abstract objective by any realistic standard. So, let's break it down in more tangible goals, where each goal is its own project and we will see how far these get:
  - **Entity**: "A collection of common object definitions."
+Provide a solid foundation to represent as many common concepts and real-world objects in code.
+For example, define "Person," "Address," and "PhoneNumber" classes; and maybe, a "User" class might be implemented by inheriting from the "Person" class and adding an Address property of type "Address," a couple of phone number properties of class "PhoneNumber."
+Particular **objectives for "Entity"** are:
+	 - Define Data Transfer Objects
+	 - Define Value Objects (implementing DTO's)
+	 - Provide data validation layer for entities.
+	 - Test entities and their methods with unit tests.
+	 - Provide easy to read and understand documentation for adopters.
  - **Extensions**: "Extended functionality for data types."
 - **Data Sets**: "Sets of records for commonly-used data in software."
 
