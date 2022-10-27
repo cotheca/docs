@@ -30,6 +30,13 @@ Particular **objectives for "Entity"** are:
 	 - Test entities and their methods with unit tests.
 	 - Provide easy to read and understand documentation for adopters.
  - **Extensions**: "Extended functionality for data types."
-- **Data Sets**: "Sets of records for commonly-used data in software."
+ Provide extension methods (or polyfills) for common actions on primitive data types.
+ For example, implement extension methods for the "string" data type that converts text into camelCase, PascalCase, snake_case and kebab-case by adding the methods ToCamelCase(...), ToPascalCase(...), ToSnakeCase(...), ToKebabCase(...) to the string data type.
+ Particular **objectives for Extensions** project are:
+	 - Implement common actions.
+	 - Provide validation (where possible).
+	 - Test extension methods with unit tests.
+	 - Provide easy to read and understand documentation for adopters.
+ - **Data Sets**: "Sets of records for commonly-used data in software."
 
 The ultimate goal is to make the deliverables of these projects available in as many programming languages as possible. Once completed, deliverables will be distributed via the most commonly used package manager for each language to make it easy to integrate them into any project. Once published and available, coders could easily skip the most burden tasks for most projects.
