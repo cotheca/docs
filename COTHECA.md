@@ -17,3 +17,6 @@ Software developers and software engineers spend a ridiculous amount of time wri
 Let's image a different scenario... What if instead of re-inventing the wheel or just copying and pasting code over and over, all of these "common" concepts lived in a collection than anyone could use, just like it has already happen to other creative assets such as icons or fonts? That way it would be easier for anyone, to just focus on the parts that are unique to each application or system and that's it!
 
 Well, that's Cotheca.
+
+# Goals
+As an open-source project, the whole objective is: "to write the most [reusable and] universal collection of code."
