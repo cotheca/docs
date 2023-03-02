@@ -1,0 +1,22 @@
+# Node.js and npm
+node_modules/
+
+# Compiled output
+dist/
+build/
+
+# Logs and databases
+*.log
+*.sqlite
+*.sqlite3
+*.log.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+.vs/
+*.user
+*.suo
+*.sln.docstates

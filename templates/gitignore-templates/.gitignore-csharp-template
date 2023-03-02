@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+
+# NuGet packages
+packages/
+
+# ReSharper-specific files
+*.resharper*
+
+# User-specific files
+.vs/
+*.user
+*.suo
+*.sln.docstates
