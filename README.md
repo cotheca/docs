@@ -27,8 +27,8 @@ Section about the Kanban boards we implement: Why we use them and how to use the
 		 - [**sprint-boards**.md](./development/boards/sprint-boards.md)
 	 - **products**/
 	 - **releases**/
-		 - [**release-cycle**.md](./development/boards/release-cycle.md)
-		 - [**versioning**.md](./development/boards/versioning.md)
+		 - [**release-cycle**.md](./development/releases/release-cycle.md)
+		 - [**versioning**.md](./development/releases/versioning.md)
  - **styleguide**/
  - **templates**/
 Section for templates to be used as starting points for Cotheca products to standardize development.
