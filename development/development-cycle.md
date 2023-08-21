@@ -43,7 +43,7 @@ Scrum, by definition, is an iterative methodology for project management. This i
 There's no product owners or scrum master per se. However, scrum master tasks are in place.
 
 #### Sprints
-Most new feature development tasks are expected to be completed between 2-4 sprints. Quality Assurance tasks are expected to be completed in a single sprint so that it can be released with consistency as detailed in the [release cycle specs](./release-cycle.md).
+Most new feature development tasks are expected to be completed between 2-4 sprints. Quality Assurance tasks are expected to be completed in a single sprint so that it can be released with consistency as detailed in the [release cycle specs](./releases/release-cycle.md).
 
 #### Roles
 "Our" version of Scrum cannot implement the standard roles in Scrum, however, we implement the following roles:
@@ -76,9 +76,9 @@ All of the development process is driven by two boards:
 
 ##### Development Board
 Contains all potential new features or bug fixes that contributors could work on. However in order to keep  at any time, at their own pace.
-See the [Development Board document](./development-board.md) for more details.
+See the [Development Board document](./boards/development-board.md) for more details.
 
 ##### Sprint Board
 This is definitely a weird Scrum-Kanban implementation as it basically serves as the "active" development Product Backlog items that should be completed, extended, escalated, or abandoned during the current sprint using Kanban status and methodologies within a fixed Scrum sprint time allocation (2-weeks).
 Please note that PBIs in this board will trump any Pull Request outside the sprint contributors. The Sprints should be more oriented towards Code Reviews and Quality Assurance, but in order to add a sense of commitment, active contributors' work will be posted into the Sprint Board.
-See the [Sprint Boards document](./sprint-boards.md) for more details.
+See the [Sprint Boards document](./boards/sprint-boards.md) for more details.
