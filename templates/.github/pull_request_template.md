@@ -12,12 +12,13 @@ Please delete options that are not relevant.
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
 - [ ] This change requires a documentation update
+- [ ] Documentation update
 
 
 ## Checklist:
 - [ ] My code follows the code style of this project.
 - [ ] My change requires a change to the documentation.
 - [ ] I have updated the documentation accordingly.
-- [ ] My code fullfills the issue/feature request objectives.
+- [ ] My code fulfills the issue/feature request objectives.
 - [ ] I have added tests to cover my changes (at least covers objectives).
 - [ ] All new and existing tests passed.
