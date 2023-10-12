@@ -21,6 +21,8 @@ Section about contributing to Cotheca products (i.e. the procedures and practice
 	 - [**forking-and-branching**.md](./contributing/forking-and-branching.md)
  - **development**/
 Section about development procedures and operations for the Cotheca project (i.e. practices for managing and process code into deliverable products to accomplish objectives).
+	- [**development-cycle**.md](./development/development-cycle.md)
+	- [**documentation-practices**.md](./development/documentation-practices.md)
 	 - **boards**/
 Section about the Kanban boards we implement: Why we use them and how to use them.
 		 - [**development-board**.md](./development/boards/development-board.md)
