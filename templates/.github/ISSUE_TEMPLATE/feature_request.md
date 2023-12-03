@@ -12,6 +12,6 @@ Please specify what the finished feature should accomplish (one or more objectiv
 - [ ] Objective 3
 
 
-## Aditional Context
+## Additional Context
 Add any other context or screenshots about the feature request here.
 
