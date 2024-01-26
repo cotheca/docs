@@ -55,3 +55,12 @@ Cotheca is derived from these principles and concepts in computer science:
 - Clean Architecture
 - Domain-Driven Design (DDD)
 - Code Interoperability
+
+These Principles and Concepts can be related with each other or not at all, meaning that the way that we work with these is not a sequential process and we might use the same principle at different stages of development.
+
+Again, the main goal for this document is to go over the logic applied on architectural decisions and how to breakdown entities into fundamental components, but more specifically how to apply the above principles into everyday tasks and specially stablish a written reference upon which code should be written and reviewed.
+
+Remember that this document is not set in stone. The idea is to promote a collaborative space for anyone to propose changes or improvements to achieve the overall goal for Cotheca of universality, reusability and modularity for code.
+
+Because of the extensive nature of this documents, this "Core Principles and Concepts" section is just a brief overview of the principles and concepts that serve as a foundation for the architectural and coding practices. On the following sub-sections you will find a definition for each of the principles and concepts mentioned above and how they are applied during the design and development stages of the Cotheca products with examples on how to applied them. 
+
