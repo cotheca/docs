@@ -37,14 +37,21 @@ You will see the term *program* used every now and then, but when used in a proj
 
 
 ## Core Principles and Concepts
+Cotheca is derived from these principles and concepts in computer science:
 - Object-Oriented Programming (OOP)
+  - Inheritance
+  - Encapsulation
+  - Abstraction
+  - Polymorphism
+  - Composition
 - Functional Programming (FP)
-- Abstraction
+  - First-class Functions
+  - Immutability
+  - Pure functions
+  - High-order functions
+- Modularity
 - Data Normalization
 - Do Not Repeat Yourself (DRY)
 - Clean Architecture
 - Domain-Driven Design (DDD)
-- Inheritance
-- Polymorphism
-- Composition
 - Code Interoperability
