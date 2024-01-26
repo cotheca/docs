@@ -73,5 +73,6 @@ For readability, this section will only provide a very brief definition for each
 
 
 ### Applying Core Principles and Concepts
-This section will show how Core Principles and Concepts are applied to Cotheca's software architecture, development practices and coding style by providing a code example.
+This section demonstrates how Core Principles and Concepts are applied to Cotheca's software architecture, development practices and coding style by providing a code example.
+
 
