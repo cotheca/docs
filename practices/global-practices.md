@@ -66,3 +66,8 @@ Remember that this document is not set in stone. The idea is to promote a collab
 Because of the extensive nature of this document, this "Core Principles and Concepts" section is just a brief overview of the principles and concepts that serve as a foundation for the architectural and coding practices. In the following sub-sections, you will find a definition for each of the principles and concepts mentioned above and how they are applied during the design and development stages of the Cotheca products with examples on how to apply them.
 
 
+### Defining Core Principles and Concepts
+The current focus for this document is on how to write code for universal and reusable code libraries. When writing code, we need to remember that we are creating just building blocks, at Cotheca; these blocks can and will be used for a particular purpose, but the end product can be anything, and some fraction of it will rely on the building block you authored. That is why General Abstraction is the fundamental concept behind Cotheca, and the rest of the concepts help us to achieve such abstraction and reusability.
+
+For readability, this section will only provide a very brief definition for each principle and concept and a few parameters or tips on what is relevant for Cotheca about that particular principle or concept. You will find code examples with a more detailed explanation for the logic used in the next section Applying Core Principles and Concepts. That way should be easy to skim through the concepts, but dig into the technical details only when needed.
+
