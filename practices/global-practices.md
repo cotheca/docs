@@ -80,6 +80,40 @@ It's crucial to understand that at Cotheca, each program or project might exclus
 
 Please see [Applying General Abstraction](#applying-general-abstraction) for an explained code example.
 
+#### Defining Object-Oriented Programming
+
+#### Defining Inheritance
+
+#### Defining Encapsulation
+
+#### Defining Abstraction
+
+#### Defining Polymorphism
+
+#### Defining Composition
+
+#### Defining Functional Programming
+
+#### Defining First-Class Functions
+
+#### Defining Immutability
+
+#### Defining Pure Functions
+
+#### Defining High-Order Functions
+
+#### Defining Modularity
+
+#### Defining Data Normalization
+
+#### Defining Do Not Repeat Yourself
+
+#### Defining Clean Architecture
+
+#### Defining Domain-Driven Design
+
+#### Defining Code Interoperability
+
 
 ### Applying Core Principles and Concepts
 This section demonstrates how Core Principles and Concepts are applied to Cotheca's software architecture, development practices and coding style by providing a code example.
@@ -301,3 +335,57 @@ If you have authored code before, you will be familiar with the feeling of rewri
 Or, you might even be familiar with the feeling of having a project idea, but the foundation of the project takes the most effort or time to code, and it's the most generic part of the project, keeping it in an "in progress" state or in a to-do list because time is becoming the most valuable resource in our current era. Such a scarce one.
 
 The overall objective of general abstraction is to bring ease, clarity, and functionality at higher levels. It could be really worth it at so many different levels.
+
+
+#### Applying Object-Oriented Programming
+##### Object-Oriented Programming Relevance
+##### Object-Oriented Programming Code Example
+###### Object-Oriented Programming Example Initial Code
+###### Object-Oriented Programming Example Code
+###### Object-Oriented Programming Code Example Takeaways
+###### Object-Oriented Programming Code Example Issues To Watch
+
+
+#### Applying Inheritance
+##### Inheritance Relevance
+##### Inheritance Code Example
+###### Inheritance Example Initial Code
+###### Inheritance Example Code
+###### Inheritance Code Example Takeaways
+###### Inheritance Code Example Issues To Watch
+
+
+#### Applying Encapsulation
+##### Encapsulation Relevance
+##### Encapsulation Code Example
+###### Encapsulation Example Initial Code
+###### Encapsulation Example Code
+###### Encapsulation Code Example Takeaways
+###### Encapsulation Code Example Issues To Watch
+
+
+#### Applying Abstraction
+##### Abstraction Relevance
+##### Abstraction Code Example
+###### Abstraction Example Initial Code
+###### Abstraction Example Code
+###### Abstraction Code Example Takeaways
+###### Abstraction Code Example Issues To Watch
+
+
+#### Applying Polymorphism
+##### Polymorphism Relevance
+##### Polymorphism Code Example
+###### Polymorphism Example Initial Code
+###### Polymorphism Example Code
+###### Polymorphism Code Example Takeaways
+###### Polymorphism Code Example Issues To Watch
+
+
+#### Applying Composition
+##### Composition Relevance
+##### Composition Code Example
+###### Composition Example Initial Code
+###### Composition Example Code
+###### Composition Code Example Takeaways
+###### Composition Code Example Issues To Watch
