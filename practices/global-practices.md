@@ -39,12 +39,12 @@ You will see the term *program* used every now and then, but when used in a proj
 ## Core Principles and Concepts
 Cotheca is derived from these principles and concepts in computer science:
 - [General Abstraction](#defining-general-abstraction)
-- Object-Oriented Programming (OOP)
-  - Inheritance
-  - Encapsulation
-  - Abstraction
-  - Polymorphism
-  - Composition
+- [Object-Oriented Programming (OOP)](#defining-object-oriented-programming)
+  - [Inheritance](#defining-inheritance)
+  - [Encapsulation](#defining-encapsulation)
+  - [Abstraction](#defining-abstraction)
+  - [Polymorphism](#defining-polymorphism)
+  - [Composition](#defining-composition)
 - Functional Programming (FP)
   - First-class Functions
   - Immutability
@@ -81,6 +81,34 @@ It's crucial to understand that at Cotheca, each program or project might exclus
 Please see [Applying General Abstraction](#applying-general-abstraction) for an explained code example.
 
 #### Defining Object-Oriented Programming
+Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which can contain data describing the object's attributes or properties, as well as actions, in the form of methods. OOP allows developers to organize software as a collection of discrete objects that incorporate both data structures and behavior.
+
+At Cotheca, OOP helps in crafting code that is modular, easy to manage, and reusable. Objects created as part of a product can often be reused in other projects, whether it's for another Cotheca product or an external product or project. This modularity supports our goal of creating software libraries that can be easily shared across different projects and environments, enhancing both universality and reusability. OOP's emphasis on encapsulation, polymorphism, and inheritance aligns with our architectural philosophies by promoting clean and maintainable code structures that simplify both development and future enhancements. We will be covering the specifics of these OOP Principles and Concepts in terms of defining them, explaining what are the relevance of them in the Cotheca Project and actual code examples the following sub-sections of the document:
+
+- Inheritance
+	- [Defining Inheritance](#defining-inheritance)
+	- [Applying Inheritance](#applying-inheritance)
+- Encapsulation
+	- [Defining Encapsulation](#defining-encapsulation)
+	- [Applying Encapsulation](#applying-encapsulation)
+- Abstraction
+	- [Defining Abstraction](#defining-abstraction)
+	- [Applying Abstraction](#applying-abstraction)
+- Polymorphism
+	- [Defining Polymorphism](#defining-polymorphism)
+	- [Applying Polymorphism](#applying-polymorphism)
+- Composition
+	- [Defining Composition](#defining-composition)
+	- [Applying Composition](#applying-composition)
+
+The programming paradigm approach used at Cotheca is a hybrid one, combining OOP and Functional Programming. Don't worry we'll cover Functional Programming in more detail in future sections, so let's focus on OOP for now. Cotheca projects leverage both paradigms depending on the purpose of the code. OOP is great for structuring data in "business objects", and especially data transfer objects (DTOs) while Functional Programming is amazing for processing data objects and computing data. For example, OOP allows us to categorize objects that share characteristics and use other objects to describe properties or characteristics of them, as well as share some common logic. By definition, data transfer objects should not contain any business logic; however, we might use non-mutable data-related common logic as part of the object definitions and super classes definitions depending on how general or specialized our code is. This a somewhat of a middle ground between business objects and DTO's. Some logic that could be part of objects could be methods for data presentation, data transformation, data validation, data or object equality. Additionally, in most scenarios, shared logic can be added to classes via extension methods (or similar paradigms) as a middle ground of implementing object-oriented behavior in a more portable and interoperable approach.
+
+You can find explained code examples on how to apply OOP in these sections:
+- [Applying Inheritance](#applying-inheritance)
+- [Applying Encapsulation](#applying-encapsulation)
+- [Applying Abstraction](#applying-abstraction)
+- [Applying Polymorphism](#applying-polymorphism)
+- [Applying Composition](#applying-composition)
 
 #### Defining Inheritance
 
@@ -335,15 +363,6 @@ If you have authored code before, you will be familiar with the feeling of rewri
 Or, you might even be familiar with the feeling of having a project idea, but the foundation of the project takes the most effort or time to code, and it's the most generic part of the project, keeping it in an "in progress" state or in a to-do list because time is becoming the most valuable resource in our current era. Such a scarce one.
 
 The overall objective of general abstraction is to bring ease, clarity, and functionality at higher levels. It could be really worth it at so many different levels.
-
-
-#### Applying Object-Oriented Programming
-##### Object-Oriented Programming Relevance
-##### Object-Oriented Programming Code Example
-###### Object-Oriented Programming Example Initial Code
-###### Object-Oriented Programming Example Code
-###### Object-Oriented Programming Code Example Takeaways
-###### Object-Oriented Programming Code Example Issues To Watch
 
 
 #### Applying Inheritance
