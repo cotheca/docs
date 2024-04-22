@@ -111,6 +111,14 @@ You can find explained code examples on how to apply OOP in these sections:
 - [Applying Composition](#applying-composition)
 
 #### Defining Inheritance
+Inheritance in Object-Oriented Programming (OOP) is a mechanism that allows us to define a new class based on an existing class. The new class, known as a child class, inherits attributes and behaviors (methods) from the existing class, which is referred to as the parent class. This fundamental OOP concept enables a hierarchy of classes that promotes code reusability and organization.
+
+At Cotheca, embracing inheritance means we can create a structured and scalable codebase. For example, if we have a general class called `Vehicle`, we can inherit this class to create specific types of vehicles like `Car`, `Bike`, or `Truck`. Each of these subclasses can then add its specific attributes and methods while inheriting common characteristics from the `Vehicle` class. This helps prevents redundancy and ensures that each component or module we develop can interact seamlessly with others, maintaining a consistent architecture across our projects.
+
+Inheritance promotes an intuitive way to think about our code libraries: as a family tree where each new class represents a more specific, or specialized version of its parent. Allowing us to produce universal, reusable, and modular software components that support a wide range of applications while simplifying maintenance and upgrades.
+
+Please see [Applying Inheritance](#applying-inheritance) for an explained code example.
+
 
 #### Defining Encapsulation
 
@@ -366,13 +374,380 @@ The overall objective of general abstraction is to bring ease, clarity, and func
 
 
 #### Applying Inheritance
-##### Inheritance Relevance
-##### Inheritance Code Example
-###### Inheritance Example Initial Code
-###### Inheritance Example Code
-###### Inheritance Code Example Takeaways
-###### Inheritance Code Example Issues To Watch
+This section highlights how the core concept of Inheritance is fundamental in building scalable and maintainable software within the Cotheca Project.
 
+##### Inheritance Relevance
+What is relevant about [Inheritance](#defining-inheritance) at Cotheca?
+- Allows us to extract higher concepts and expand value objects from them
+- Establishes a natural hierarchy in data objects
+- Reduces single point of failure in our models, by sharing logic from a single source of truth or a shared centralized location
+- Enhances code reusability and portability
+##### Inheritance Code Example
+Let's imagine we are developing a mileage logging app for vehicles. At this stage of the application we are registering the mileage for a few vehicles.
+
+###### Inheritance Example Initial Code
+So, we have the following code so far:
+
+```csharp
+using System;
+
+// Define the classes that will store the data
+class Car {
+	public string Make { get; init; }
+	public string Model { get; init; }
+	public int Year { get; init; }
+	public int Odometer { get; init; } // In Miles
+	
+	public void DisplayMileage()
+		=> Console.WriteLine($"Current odometer (in miles): {Odometer}");
+		
+	public string GetDisplayModel()
+		=> $"{Year} {Make} {Model}";
+}
+
+class Truck {
+	public string Make { get; init; }
+	public string Model { get; init; }
+	public int Year { get; init; }
+	public int Odometer { get; init; } // In Miles
+	
+	public void DisplayMileage()
+		=> Console.WriteLine($"{Odometer} miles");
+		
+	public string GetDisplayModel()
+		=> $"{Year} {Make} {Model}";
+}
+
+class Bicycle {
+	public string Make { get; init; }
+	public string Model { get; init; }
+		
+	public string GetDisplayModel()
+		=> $"{Make} {Model}";
+}
+
+class ElectricBicycle {
+	public string Make { get; init; }
+	public string Model { get; init; }
+	public int Odometer { get; init; } // In Miles
+	
+	public void DisplayMileage()
+		=> Console.WriteLine($"Traveled miles: {Odometer}");
+		
+	public string GetDisplayModel()
+		=> $"{Make} {Model}";
+}
+
+public class Program
+{
+	public static void Main()
+	{
+		// Define the values
+		var myCar = new Car()
+		{
+			Make = "Toyota",
+			Model = "Corolla",
+			Year = 2022,
+			Odometer = 38450
+		};
+		
+		var myTruck = new Truck()
+		{
+			Make = "Tesla",
+			Model = "CyberTruck",
+			Year = 2024,
+			Odometer = 441
+		};
+		
+		var myBike = new Bicycle()
+		{
+			Make = "Trek",
+			Model = "Marlin 4"
+		};
+		
+		var myEbike = new ElectricBicycle()
+		{
+			Make = "Co-Op Cycles",
+			Model = "DRT e3.1",
+			Odometer = 499
+		};
+		
+		
+		// Display the data
+		myCar.DisplayMileage();
+		// Output:
+		// Current odometer (in miles): 38450
+		
+		myTruck.DisplayMileage();
+		// Output:
+		// 441 miles
+		
+		myEbike.DisplayMileage();
+		// Output:
+		// Traveled miles: 499
+	}
+}
+
+```
+
+Even after taking into consideration the simplicity of the program, from the example, we can identify the following (from an object-oriented perspective):
+- All of these objects share a couple of properties and a method
+- Some of these vehicles do not have an odometer
+- Similar methods generate different outputs or results
+- Classes are more than just value objects, they have some methods that are considered "business logic" as this are specific to the application.
+- There some conceptual ambiguity for class `ElectricBicycle` as this class share properties with `Truck`, `Car` and `Bicycle`
+
+###### Inheritance Example Code
+Let's apply Inheritance to see how can we make things better in terms of re-usability and maintenance:
+
+```csharp
+using System;
+
+// Define the classes that will store the data
+
+// All of this are types of vehicles, so let's move all common properties into a new Vehicle class:
+
+// But first, let's define a contract of which properties and methods should make up a Vehicle by definig an interface
+public interface IVehicle
+{
+	public string Make { get; }
+	public string Model { get; }
+	
+	public string GetDisplayModel();
+}
+
+public class Vehicle: IVehicle
+{
+	// All of the classes share this properties
+	public string Make { get; init; }
+	public string Model { get; init; }
+	
+	// Let's add this common method as it's still conceptually universal
+	public string GetDisplayModel()
+		=> $"{Make} {Model}";
+}
+
+// There's some properties that are shared by some vehicles but not all of them,
+// so we can use subclass of Vehicle for those
+
+// Let's create a new interface for Vehicles with an odometer. Overall speaking this is a business logic interface
+public interface IReadableOdometer
+{
+	int Odometer { get; }
+}
+
+// Just for illustration purposes we will be adding a type of motor enum
+public enum MotorType
+{
+	Unknown,
+	Gasoline,
+	Electric
+}
+
+// This is a universal concept, so we will be 
+public class MotorVehicle : Vehicle
+{
+	public MotorType MotorType { get; init; } = MotorType.Unknown;
+}
+
+// Also, theres some common attributes between Car and Truck, but not for the bicycles,
+// so let's define a more specific class for 4-wheeled motor vehicles
+public class Automobile : MotorVehicle
+{
+	public int Year  { get; init; }
+	
+	// Automobile Models are displayed in a common format,
+	// so let's add the year to the output of the Vehicle class
+	new public string GetDisplayModel()
+		=> $"{Year} { base.GetDisplayModel() }";
+}
+
+// So far we have defined several universal classes, but we are still missing the odometer property.
+
+// Let's use an extension method for business logic
+internal static class OdometerExtensions
+{
+	public static void DisplayMileage(this IReadableOdometer vehicleWithOdometer)
+		=> Console.WriteLine($"Current odometer (in miles): {vehicleWithOdometer.Odometer}");
+}
+
+// Our application objective is to log odometer readings. That's business logic too.
+internal class MyAppAutomobile : Automobile, IReadableOdometer
+{
+	public MyAppAutomobile()
+	{
+		MotorType = MotorType.Gasoline;
+	}
+
+	public int Odometer { get; init; } = 0; // In miles
+}
+
+// To centralize default behavior for electric cars and trucks we create a new class 
+internal class ElectricAutomobile: MyAppAutomobile
+{
+	public ElectricAutomobile()
+	{
+		MotorType = MotorType.Electric;
+	}
+}
+
+internal class Car : MyAppAutomobile {}
+// We keep our original Truck class for backward compatibility,
+// but we integrate it to our new class design
+internal class Truck : MyAppAutomobile {}
+internal class ElectricTruck : ElectricAutomobile {}
+internal class Bicycle : Vehicle {}
+
+// We want to still support e-bikes, but we want to keep our code portable
+// and universable where applicable, so let's create a new class combining
+// universal value objects and our own business logic.
+internal class ElectricBicycle : MotorVehicle, IReadableOdometer
+{
+	public ElectricBicycle()
+	{
+		MotorType = MotorType.Electric;
+	}
+	
+	public int Odometer { get; init; } = 0; // In miles
+}
+
+public class Program
+{
+	public static void Main()
+	{
+		// Define the values
+		// This time we will store the values into a single variable,
+		// a collection of Vehicles,
+		// instead of storing the data into individual hard-coded variables
+		var myVehicles = new Vehicle[]
+		{
+			// Of course we can store an instance of Car!
+			// Car is a subclass of Vehicle,
+			// because Car is a subclass of Automobile,
+			// Automobile is a subclass of MotorVehicle,
+			// and MotorVehicle is a subclass of Vehicle
+			new Car()
+			{
+				Make = "Toyota",
+				Model = "Corolla",
+				Year = 2022,
+				Odometer = 38450
+			},
+			
+			// Of course we can store an instance of Truck!
+			// Truck is a subclass of Vehicle,
+			// because Truck is a subclass of Automobile,
+			// Automobile is a subclass of MotorVehicle,
+			// and MotorVehicle is a subclass of Vehicle
+			new ElectricTruck()
+			{
+				Make = "Tesla",
+				Model = "CyberTruck",
+				Year = 2024,
+				Odometer = 441
+			},
+			
+			// Of course we can store an instance of Bicycle!
+			// Bicycle is a subclass of Vehicle
+			new Bicycle()
+			{
+				Make = "Trek",
+				Model = "Marlin 4"
+			},
+			
+			// Of course we can store an instance of ElectricBicycle!
+			// ElectricBicycle is a subclass of Vehicle,
+			// because a ElectricBicycle is a subclass of MotorVehicle,
+			// and MotorVehicle is a subclass of Vehicle
+			new ElectricBicycle()
+			{
+				Make = "Co-Op Cycles",
+				Model = "DRT e3.1",
+				Odometer = 499
+			}
+		};
+		
+		
+		// Display the data
+		
+		// We can make our program more dynamic
+		foreach(var vehicle in myVehicles) {	
+			if(vehicle is IReadableOdometer vehicleWithOdometer)
+			{
+				// What output would you expect for this disabled code block?
+				var displayExtraInfo = false;
+				if( displayExtraInfo && vehicle is MotorVehicle motorVehicle )
+				{
+					var model = (motorVehicle is Automobile automobile)
+						? automobile.GetDisplayModel()
+						: motorVehicle.GetDisplayModel();
+					
+					switch(motorVehicle.MotorType)
+					{
+						case MotorType.Electric:
+							Console.WriteLine($"{ model } is an electric vehicle:");
+							break;
+						case MotorType.Gasoline:
+							Console.WriteLine($"{ model } is a gasoline vehicle:");
+							break;
+					}
+				}
+				
+				
+				vehicleWithOdometer.DisplayMileage();
+			}
+		}
+		// Output:
+		// Current odometer (in miles): 38450
+		// Current odometer (in miles): 441
+		// Current odometer (in miles): 499
+	}
+}
+
+```
+
+###### Inheritance Code Example Takeaways
+- Inheritance is highly effective only when the features and characteristics of a system or applications are accurately deconstructed and accurately placed across the software architecture domains. For Cotheca products, this means using inheritance merely for value objects that share common characteristics and features, and using inheritance side-by-side with composition.
+    - Trying to enforce either inheritance or composition over the other tends to lead a lot into hard to understand and unsustainable code. This will result in a huge negative business impact in the medium or long run, causing a lot of waste of resources and outdated business processes (even when the code has outstanding technical or economic performance during run-time) for organizations.
+    - There's no substitution for either. If a codebase isn't constantly updated or upgraded, because it takes a significant amount of time and involves considerable risk, then the approach taken by the authors regarding inheritance or composition is not optimal. The goal is to have agnostic agile code, not to root for inheritance or composition merely on trends or popularity of opinion. Obviously, the time and risk to maintain and upgrade should be proportional to the codebase, but it becomes really obvious that the taken approach to either inheritance or composition is not optimal when these tasks are highly avoided, or when adding a completely new feature requires a disproportionate amount of refactoring.
+- Different higher level concepts were identified from the initial classes such as `Vehicle`, `MotorVehicle`, and `Automobile` by identifying common characteristics and how they relate to real-life concepts that can potentially be used elsewhere.
+- Implementing inheritance didn't modify the overall program functionality, but rather added support for adding more values to the `Vehicle[]` array, added a variety of classes of vehicles that the application can handle, dynamically display the odometer reading only for those vehicles with an odometer. The only functionality that was changed was how the odometer readings are displayed, keeping the format constant across all usages, preventing the introduction of bugs whenever a new class supporting the DisplayMileage() feature defined its own way to implement this feature.
+- Although it might feel like an over-engineered solution for this particular program, applying inheritance broke down classes into more re-usable and universal classes that aren't exclusive to this program.
+- Inheritance adds interoperability at different levels whether each subclass data is for different purposes thanks to the inherited properties and methods that are passed from base classes to subclasses. We even have a few examples for multiple inheritance objects and how using inheritance we can model new classes that fit our business logic and still uses portable universal value objects in a realistic and sustainable way (like `MyAppAutomobile`,  `ElectricBicycle`, `ElectricAutomobile`, and `ElectricTruck`).
+- The `GetDisplayModel()` method was kept a member of the base class `Vehicle` because it only transforms data for presentation purposes only and the output is not specific to a particular program, but could be considered a universal property across vehicles.
+- The `DisplayMileage(...)` method was kept out of the `MotorVehicle` class because the behavior is specific to this particular program while still providing an object-oriented syntax for its usage.
+- The `ElectricBicycle` class was intentionally used in the example because it would have been more intuitive to have extracted the following classes: `Bicycle:Vehicle`, `ElectricBicycle:Bicycle`; however, from a functional point of view of classes (relative to the application), `Bicycle` and `ElectricBicycle` do not share many things in common. When working on Cotheca libraries, decide hierarchy of classes by analyzing the resulting classes and see what's common in each and how it could be used in third-party applications.
+- In a real-world scenario, we would have spread all of our classes into different domain levels (due to separation of concerns) [Notice the usage of different access levels for classes to reflect this, `public` access was assigned to code expected to be shared outside of the project and the `internal` access level was assigned to code expected to be used within the project]:
+    - Cotheca Libraries (most universal)
+        - `IVehicle` interface
+        - `Vehicle` class
+        - `MotorType` enum
+        - `MotorVehicle` class
+        - `Automobile` class
+    - Organization Libraries (potentially re-usable within the organization developing the Mileage Logging application, but could have been specific to the application too)
+        - `IReadableOdometer` interface
+        - `MyAppAutomobile` class
+        In a real-world scenario, the class name could have remained the same, `Automobile`, but namespaces could have been used to distinguish the organization/app implementation from the Cotheca implementation.
+        - `ElectricAutomobile` class
+        - `Car` class
+        - `Truck` class
+        - `Bicycle` class
+        - `ElectricBicycle` class
+        - `ElectricAutomobile` class
+        - `OdometerExtensions` class
+    - Mileage Logging application (most specific)
+        - `Program`
+
+###### Inheritance Code Example Issues To Watch
+- Some assumptions were made and code does not reflect an actual Cotheca Library, but rather exemplifies how new Cotheca classes could be extracted from application code.
+- Please consult the goals of specific Cotheca libraries and the functionality that is aiming to provide to design classes and determining concrete implementations and class hierarchy.
+- Other higher concepts were omitted from the example that could have been implemented:
+    - `MeasuringUnit`: An abstract class representing the abstract concept of "a measure"
+        - `LinearUnit`: An abstract class, inheriting from `MeasuringUnit`, representing the abstract concept of a linear unit
+            - `Mile`: A concrete class, inheriting from `LinearUnit`, representing an imperial mile.
+- Only use inheritance for value object properties, meaning that inheritance should only provide relevant data model properties, for more specific logic implement multiple inheritance strategies that make sense in the long term for your application or organization.
+- Inheritance can be really useful, but as you can see from the example it can get very confusing, hide properties, and code authors unfamiliar with the class design could introduce bugs due to being unfamiliar with the code base. Use tests, language features, and in-code documentation to establish an understandable use of inheritance that is sustainable.
+- Class and interface naming can introduce bugs by getting ambiguous or unclear for custom implementations or subclasses. Use namespace strategies to help differentiate, use your project documentation to let contributors know what classes to use. Use documentation, tests, or validation rules to detect misused classes. For example, see documentation (and IDE features like IntelliSense) to inform your team that your application should use `MyOrg.Models.Vehicles.Automobile` instead of `Cotheca.ExampleLib.Vehicles.V2.Automobile` (example namespace, not a real library).
 
 #### Applying Encapsulation
 ##### Encapsulation Relevance
