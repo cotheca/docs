@@ -7,7 +7,7 @@ This document provides a quick guide of the configuration required on a GitHub r
 	2. Configure issue templates
 	3. Configure issue labels
 3. Add Files to the repository
-	4. Add a README file at the root folder
-	5. Add a CONTRIBUTING file at the root folder
-	6. Add a LICENSE file at the root folder
-	7. Add a pull request template
+	1. Add a README file at the root folder
+	2. Add a CONTRIBUTING file at the root folder
+	3. Add a LICENSE file at the root folder
+	4. Add a Pull Request template
