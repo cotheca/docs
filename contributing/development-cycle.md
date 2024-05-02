@@ -2,14 +2,21 @@
 Cotheca implements a hybrid model of Scrum and Kanban to drive development toward achievable objectives. In overall, Scrum practices drive the consistency needed for shipping and structure, while Kanban handles the continuous flow of passive development and fast adaptability.
 
  1. *Stakeholders* submit items to the Development Board or create issues to report bugs.
- 2. Proposed features are stacked in the **New** column of the [Development Board](https://github.com/orgs/cotheca/projects/2) , if the proposed item seems in scope of the overall Cotheca Project, it gets processed into the **Backlog**.
- 3. *Contributors* **pick PBI's** to work on from the **Backlog** column.
- 4. *Contributors* **branch out or fork out**.
- 5. *Contributors* submit their changes via a **Pull Request** (linked to an issue).
- 6. *Lead Contributors* **review Pull Requests** and process them into the current sprint iteration.
- 7. Pull Requests are **merged into main**.
- 8. *Contributors* **apply QA procedures** to verify that changes work as needed.
- 9. **Changes are shipped** in the release cycle iteration.
+ 2. Proposed features are stacked in the **New** column of the [Development Board](https://github.com/orgs/cotheca/projects/2) , if the proposed item seems in scope of the Cotheca Project, it gets processed into the **Backlog** column.
+ 3. *Lead Contributors* plan items by assigning a sprint to new items to be worked in the current and next sprints.
+ 4. *Contributors* **pick PBI's** from the **New** column to work on
+    - *Active Contributors* can pick from the [current sprint](https://github.com/orgs/cotheca/projects/2/views/5) items.
+    - *Passive Contributors* can pick any [unassigned items](https://github.com/orgs/cotheca/projects/2/views/10) (without an assignee and without a sprint).
+ 5. *Contributors* **fork out and/or branch**.
+    - Active contributors must create branch in the repo, and link it to the issue
+    - Passive contributors should comment add a link to their fork's branch in the issue comments
+ 7. *Contributors* submit their changes via a **Pull Request** (must be linked to an issue).
+ 8. *Lead Contributors* **review Pull Requests** and process them into the current sprint iteration.
+ 9. Pull Requests are **merged into main**.
+ 10. *Contributors* **apply QA procedures** to verify that changes work as needed.
+ 11. **Changes are shipped** in the release cycle iteration.
+
+See [Scrum Roles definitions](#roles) for more information regarding roles.
 
 
 ## Needs
@@ -34,51 +41,53 @@ The main development needs for Cotheca are the following:
  - Development needs to be scalable at any point.
  - Have a proactive quality assurance strategy.
 
+
 ## Approach
 Given the particular requirements for this open source project, the best approach seems to base development operations on a fluid framework but drive it by a structured methodology.
+
 
 ### The Scrum Side
 Scrum, by definition, is an iterative methodology for project management. This iterative nature is what Cotheca focuses on for the Scrum Side of things. Development at Cotheca is driven by 2-week sprints. Not for rushing development, but for refining deliverables.
 
-There's no product owners or scrum master per se. However, scrum master tasks are in place.
+There's no product owners or scrum master per se. However, scrum master tasks are in place and all contributors are expected to update issues via comments, tasks, linking their branches and pushing changes into their branches.
 
 #### Sprints
-Most new feature development tasks are expected to be completed between 2-4 sprints. Quality Assurance tasks are expected to be completed in a single sprint so that it can be released with consistency as detailed in the [release cycle specs](./releases/release-cycle.md).
+Most new feature development tasks are expected to be completed between 2-4 sprints. Quality Assurance tasks are expected to be completed in a single sprint so that it can be released with consistency as detailed in the [release cycle document](./releases/release-cycle.md).
 
 #### Roles
 "Our" version of Scrum cannot implement the standard roles in Scrum, however, we implement the following roles:
  - **Contributor**
- Can be either passive (works at their own pace) or active (participates in the sprint).
- Does any of the following actions:
-	 - Participates in contributing into the repository
-	 - Participates in QA tasks
+	 - Does any of the following actions:
+		 - Participates in contributing into the repository
+		 - Participates in QA tasks
+	 - **Active Contributor**
+		 - Participates in the sprint
+		 - Becomes a passive contributor if none of the assigned issues aren't updated by the end of the assigned sprint.
+	 - **Passive Contributor**
+		 - Works at their own pace
+		 - Becomes an active contributor by having submitted at least a PR in the previous sprint and the current sprint.
+	 - **Lead Contributor**
+		 - Participates in contributing into the repository
+		 - Manages the Product Backlog (via the Development Board)
+		 - Reviews Pull Requests
+		 - Approves or Rejects Pull Requests
  - **Stakeholder**
- Does any of the following actions:
-	 - Pitches a product
-	 - Uses the product
-	 - Proposes features
-	 - Reports bugs
- - **Lead Contributor**
- Does the following actions:
-	 - Participates in contributing into the repository
-	 - Manages the Product Backlog (via the Development Board)
-	 - Reviews Pull Requests
-	 - Approves or Rejects Pull Requests
+	 - Does any of the following actions:
+		 - Pitches a product
+		 - Uses the product
+		 - Proposes features
+		 - Reports bugs
 
 #### Ceremonies
-There are no usual Scrum "ceremonies," due to the nature of the project. The only recurrent "ceremony" would be the Sprint Board publishing and Sprint Board closure.
+There are no usual Scrum "ceremonies," due to the nature of the project. Actively the sprints are planned by assigning new items to the next sprint, and assigning or self-assigning assignees to the current sprint's PBI items (those in the "backlog" status). 
+
+The only recurrent "ceremony" would be that before the end of each quarter, the corresponding iterations for the following quarter are added to the "Sprint" field of the Development Board.
+
 
 ### The Kanban Side
 Kanban focuses on an open and visual work load representation to keep track of work in progress and milestones. For so, it seems to be a very good match for the needs of the projects and the GitHub tooling.
 
-#### Boards
-All of the development process is driven by two boards:
+#### Development Board
+Contains all potential new features or bug fixes that contributors could work on. As described above, there are some scrum methodologies around the Development Board, but overall it is a Kanban approach were contributors take on issues and update their status by moving from one column to another.
 
-##### Development Board
-Contains all potential new features or bug fixes that contributors could work on. However in order to keep  at any time, at their own pace.
-See the [Development Board document](./boards/development-board.md) for more details.
-
-##### Sprint Board
-This is definitely a weird Scrum-Kanban implementation as it basically serves as the "active" development Product Backlog items that should be completed, extended, escalated, or abandoned during the current sprint using Kanban status and methodologies within a fixed Scrum sprint time allocation (2-weeks).
-Please note that PBIs in this board will trump any Pull Request outside the sprint contributors. The Sprints should be more oriented towards Code Reviews and Quality Assurance, but in order to add a sense of commitment, active contributors' work will be posted into the Sprint Board.
-See the [Sprint Boards document](./boards/sprint-boards.md) for more details.
+See the [Development Board details](https://github.com/orgs/cotheca/projects/2/views/1?pane=info) for more details.
