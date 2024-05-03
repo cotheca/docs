@@ -52,7 +52,7 @@ Scrum, by definition, is an iterative methodology for project management. This i
 There's no product owners or scrum master per se. However, scrum master tasks are in place and all contributors are expected to update issues via comments, tasks, linking their branches and pushing changes into their branches.
 
 #### Sprints
-Most new feature development tasks are expected to be completed between 2-4 sprints. Quality Assurance tasks are expected to be completed in a single sprint so that it can be released with consistency as detailed in the [release cycle document](./releases/release-cycle.md).
+Most new feature development tasks are expected to be completed between 2-4 sprints. Quality Assurance tasks are expected to be completed in a single sprint so that it can be released with consistency as detailed in the [release cycle document](./release-cycle.md).
 
 #### Roles
 "Our" version of Scrum cannot implement the standard roles in Scrum, however, we implement the following roles:
